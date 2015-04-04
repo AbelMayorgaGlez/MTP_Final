@@ -1,0 +1,25 @@
+Producto PV-000001 creado satisfactoriamente
+Descripcion: silla
+Tipo: venta
+Categoria: Antiguedades
+Subcategorias: 
+Producto PV-000002 creado satisfactoriamente
+Descripcion: silla2
+Tipo: venta
+Categoria: Antiguedades
+Subcategorias: 
+Producto PV-000003 creado satisfactoriamente
+Descripcion: silla3
+Tipo: venta
+Categoria: Antiguedades
+Subcategorias: 
+Elementos con un precio menor a: 11.0
+silla
+silla2
+A Fulano de TALF le han sobrepujado. El nuevo precio para Silla1 es: 13.7
+A Pepito le han sobrepujado. El nuevo precio para Silla1 es: 13.7
+Menganito ha pujado por el producto Silla1 con un precio de 13.7
+A Pepito le han sobrepujado. El nuevo precio para Silla1 es: 13.7
+A Fulano de TALF le han sobrepujado. El nuevo precio para Silla1 es: 13.7
+Menganito ha pujado por el producto Silla1 con un precio de 13.7
+Menganito ha ganado la subasta por el producto Silla1 enhorabuena.

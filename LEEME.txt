@@ -1,0 +1,136 @@
+
+INTEGRANTES DEL GRUPO:
+	-Abel Mayorga Gonzalez
+	-Hector Rodriguez Gutierrez
+	-Alberto Guzman Goyanes
+	-Mario Carracedo Garcia
+	-Rodrigo Urdiales Santos
+	-Pablo Lobato Gonzalez
+
+REQUISITO 1: Uso del patron "handler" para manejar identificadores independientes entre si.
+
+Decisiones de diseño del patron:
+
+-Como se deben identificar tres tipos de elementos diferentes, que implementan la interfaz Identificador
+-Tenemos 4 identificadores concretos, IdentificadorPV, IdentificadorPS, IdentificadorCategoría e IdentificadorDefecto.
+-Los identificadores se construyen a partir de un String. Como en la especificacion no pone como deben ser los identificadores de las categorias, 
+	hemos decidido que se identifiquen por un numero. IdentificadorDefecto, por su parte, admite cualquier String.
+-Tambien damos la opcion de construir los identificadores asignando el numero de forma secuencial automaticamente. 
+	Para ello, hemos implementado una clase Singleton, llamada ContadorIdentificadores. ContadorIdentificadores lleva la cuenta de cuantos
+	identificadores de cada tipo se han creado. Tiene dos metodos, siguienteNumero(String):int, que devuelve el siguiente numero del tipo indicado.
+	Por ejemplo, para obtener el siguiente numero de IdentificadorCategoria, se llama a siguienteNumero("categoria"). Para reiniciar los contadores,
+	se tiene el metodo reiniciarContadores(). Para que pasen bien todos los test, en el setUp se debe de llamar a reiniciarContadores().
+-Como siempre, es posible construir un Identificador a partir de otro, en cuyo caso se llamara al constructor que recibe un String.
+-El cliente del "handler" es el patron "composite".
+
+REQUISITO 2: Uso del patron "composite" para organizar la estructura interna de datos.
+
+
+
+Decisiones dentro del patron:
+
+
+
+-Uso de un componente, Elemento, un compuesto, Categoria, una hoja abstracta, Producto, y 2 hojas concretas que heredan de Producto, ProductoVenta y ProductoSubasta. 
+	Producto contiene los metodos comunes a los dos productos concretos.
+
+-El composite es seguro. La clase Elemento define todos los metodos que se usan en las hojas, y define un comportamiento por defecto 
+	para los metodos que no sean comunes a todos sus hijos, como pujar, lanzar OperacionNoPermitidaException.
+ Para acceder a los metodos de manejo de hojas,
+	como anyadir y eliminar, hay que hacer un cast con el metodo getComposite(). Gracias a esto nos evitamos tener que manejar excepciones en muchos metodos.
+-Las clases hijas redefinen los metodos que vayan a poder usar.
+
+-Mantenemos referencias al padre para poder basar el metodo eliminar en el metodo buscar.
+
+-Al crear un elemento, su padre se asigna a null.
+ El padre de un elemento se asigna cuando se anyade en una categoria.
+
+-El metodo anyadir "cuelga" el elemento pasado del elemento actual. En caso de que ese elemento ya este en otro sitio, previamente se quita de donde esta.
+-El objeto padre de todos los demas sera el unico con padre = null.
+
+-El metodo eliminar devuelve el elemento eliminado. En caso de querer borrarlo, no se guarda en ninguna otra variable.
+-El metodo anyadir comprueba que el elemento a anyadir no este ya en la lista de elementos de la categoria en concreto, y tampoco permite anyadir null.
+-Hay constructores que reciben el identificador a asignar al objeto, y otros que no. En estos ultimos, se asigna el identificador automaticamente.
+-Para construir un producto a partir de otro, hemos incluido constructores que reciben un elemento como parametro. Asi se copia el producto y se le asigna un nuevo identificador,
+	pudiendo convertir un producto de venta en uno de subasta, o viceversa.
+-El cliente del "composite" es la clase Tienda. Esta clase tiene un atributo de tipo Elemento, sobre el que se construye el arbol de productos.
+	Esta clase define los metodos de busqueda y creacion de nuevos elementos dentro del arbol.
+
+REQUISITO 3: Uso del patron "strategy" para cambiar el algoritmo de calculo de precios dinamicamente.
+
+Decisiones dentro del patron:
+
+-La estrategia es desacoplada. El metodo calcularPrecio solo recibe un float sobre el que se aplica el algoritmo, por lo que admite cualquier contexto que trabaje con float.
+-Incluimos dos estrategias concretas. EstrategiaDefecto, que no hace nada sobre el float pasado, y Rebaja, que multiplica el float pasado por un factor escala entre 0 y 1.
+	El constructor de Rebaja recibe el descuento a aplicar en formato decimal, es decir, para 10%, pasar 0,1.
+-El contexto de la estrategia es el componente del composite, es decir, Elemento.
+-Se ha anyadido el metodo setEstrategia al composite. Este metodo esta definido para todas las clases.
+-El metodo setEstrategia de Categoria, compuesto del composite, aplica la estrategia a todos los Elementos que aglutina.
+-Por ultimo, se ha anyadido el metodo aplicarEstrategia a la clase tienda. Si recibe una estrategia, la aplica al elemento padre de todos los demas. 
+	Si recibe un identificador y una estrategia, la aplica a el elemento con el identificador especificado.
+-Por otra parte, se ha creado una nueva clase Lote, que hereda de Categoria, esto es un compuesto especial ya que solo puede agregar productos de venta.
+	Si se intenta anyadir una categoria a un lote, se obtiene una lista con los productos que contiene esa categoria, y luego se intentan anyadir al lote.
+-Tambien se ha anyadido el IdentificadorLote correspondiente al Handler, y su contador en "ContadorIdentificadores"
+REQUISITO 4: Uso del patron "observer" para seguir y observar el avance de una subasta.
+
+Decisiones dentro del patron:
+
+-Tenemos la interfaz Observador, la interfaz Sujeto, un observador concreto, ObservadorSubasta, y un sujeto concreto, Elemento, el cual es el componente del Composite.
+-La relacion entre el observador concreto y el sujeto concreto es de muchos a muchos. Esto es, que un observador observa muchos elementos, y un elemento es observado
+	por muchos observadores.
+-Hemos creado la clase Usuario, la cual es el cliente del Observer. La tienda ahora contiene un conjunto de usuarios. Un usuario mantiene un solo observador, sobre el que delega todos sus metodos.
+-Cuando un usuario puja, le dice a su observador que puje. Si la puja tiene exito, el producto de subasta notifica a todos sus observadores que alguien ha pujado y
+	se guarda quien es ese usuario. Los observadores se encargan de decir a sus usuarios que  alguien ha pujado mas que ellos. Entonces el usuario guarda ese
+	producto en un conjunto de elementos sobrepujados, y cuando vuelva a pujar, se saca ese producto del conjunto.
+-Cuando finaliza la subasta de un producto, el producto notifica a todos sus observadores y luego borra el conjunto de observadores. Cada observador pregunta al producto
+	si la subasta sigue activa. Si es que no, el observador borra ese producto de su conjunto de observados y le dice a su usuario que la subasta ha terminado y si ha ganado.
+	En caso afirmativo, el usuario guarda ese producto en un conjunto de elementos ganados.
+
+REQUISITO 5: Uso del patron "command" para organizar la ejecucion del programa.
+
+Decisiones dentro del patron:
+
+-Tenemos la interfaz Comando, que define el metodo ejecutar, y 15 comandos concretos: Auction, Bid, EndAuction, NewProd, Sell, 5 Sets: SetNombre, SetDescripcion, SetPrecio
+	SetCategoria y SetTipo, y 5 Gets: GetNombre, GetDescripcion, GetPrecio, GetCategoria y GetTipo. En el recuento no contamos Get y Set, ya que son abstractos.
+-El cliente y el invoker del Command es la clase InterfazUsuario, y el receiver varia dependiendo del comando concreto. Pueden ser las clases Tienda, Usuario y Elemento.
+-Los constructores de los comnados concretos reciben como parametro la tienda sobre la que se aplican los comandos (puede ser que el receiver sea el Usuario o el Elemento,
+	pero habra que buscarlos en la tienda).
+-Los comandos son creados dentro de un FactoryMethod, de la clase InterfazUsuario. Este es un Factoy Method parametrizado. Recibe un String y dependiendo de la primera palabra,
+	crea un comando u otro.
+-En los comandos, a la hora de especificar el producto sobre el que aplicar el producto, podemos hacerlo mediante el identificador o mediante el nombre. En todo caso, siempre
+	se buscara por identifiacador. En el caso de que no se encuentre nada, se buscara el nombre, en el caso de que tampoco se encuentre nada, se lanzara ErrorEjecucionException.
+-Para la lectura de comandos, hemos creado otro patron Strategy. La interfaz se llama "EstrategiaLectura" y el algorithmInterface es sigLinea():String. Las estrategias concretas
+	son "DeConsola", la cual lee de consola, y "DeFichero", que lee de un fichero. Hay que decir que la clase "DeConsola" lee usando la clase "Console", por tanto,
+	el programa funcionara desde la consola de comandos, pero por ejemplo, no funciona si se ejecuta directamente desde Eclipse. Ademas, para terminar la entrada por consola,
+	hay que introducir el caracter fin de fichero. En linux se introduce con Cntrl+D.
+-Para la salida, hemos creado un patron Decorator. El "Component" es la interfaz "SalidaDecorada", el "ConcreteComponent" es la clase "Salida", que escribe por la salida estandar,
+	el "Decorator" es la clase abstracta "Decorador", y el "ConcreteDecorator" es la clase "AFichero". Contienen los metodos escribir(String), que escribe, y el metodo
+	reiniciarSalida(), que cierra la salida y la vuelve a abrir. Esto se usa para los test. Asi, cada test escribira su salida en un fichero vacio en vez de acumularse todas las salidas.
+	Si en algun momento se lanza un IOException, el programa terminara.
+-Como la salida se utiliza en varias clases, hemos implementado una clase Singleton llamada "SalidaSingleton". Mantiene una sola instancia de la salida, y tiene dos metodos getInstance:
+	getSalida(), que instancia una salida por defecto, y getSalida(String), que instancia una salida por el fichero en la direccion indicada por el String. En todo caso, solo
+	se instancia la primera vez que se llama a uno de los dos metodos, luego se devuelve lo que hay creado, sea o no lo que se pide.
+-En conjunto, la clase InterfazUsuario contiene un metodo run(), en el cual hay un bucle donde se lee una linea, se crea el comando correspondiente y se ejecuta, asi hasta que se
+	termine la entrada y la estrategia de lectura devuelva null.
+-La entrada y la salida se instancia en la clase Main, desde la que se ejecuta el programa, y permanecen invariantes durante toda la ejecucion.
+
+
+REQUISITO 6: Uso del patron "iterator" para recorrer la estructura de objetos del composite.
+
+Decisiones dentro del patron:
+
+-Tenemos la interfaz "Iterador<T>", generica, y dos iteradores concretos: "IteradorNulo<T>" e "IteradorComposite". IteradorComposite ya no es generico, porque solo puede iterar sobre
+	el composite, es decir, sobre la clase Elemento, por eso, la clase IteradorComposite se define como "IteradorComposite implements Iterador<Elemento>".
+-Tenemos la interfaz "Agregado<T>", generica, que define tres metodos: darNumHijos():int, darHijo(int):T y darIterador(String):Iterador<T>. Por tanto, Agregado<T> representa
+	agregados de cualquier clase. El agregado concreto de nuestra practica, Elemento, no puede ser generico, sino que Elemento es un Agregado de Elemento, por tanto, se define
+	Elemento como "Elemento implements Agregado<Elemento>.
+-Aunque nuesto composite es seguro, nos estropea parte de esta seguridad el hecho de que Elemento implemente a Agregado, porque Elemento tiene que implementar los metodos darNumHIjos():int
+	y darHijo(int):Elemento. En todo caso, los productos devolveran 0 y null respectivamente.
+-Como tiene que haber dos formas de iterar el composite, la decision de que elementos devolver la toma una nueva estrategia, "EstrategiaIteradorComposite", cuyo algorithmInterface
+	es "esValido(Elemento)". Tenemos dos estrategias concretas, "EstrategiaIteradorcategoria" y "EstrategiaIteradorPrecio". Esto nos permite crear nuevas formas de iteracion con solo crear nuevas estrategias.
+-El metodo darIterador(String):Iterador<Elemento>, devuelve un iterador con una estrategia u otra dependiendo del String: "categorias" para "EstrategiaIteradorCategorias" o un numero, como String,
+	para "EstrategiaIteradorPrecio". En caso de que no sea ninguna de las dos cosas, devuelve un "IteradorNulo<Elemento>"
+-La forma de iterar es recorrer el arbol en profundidad. Para ello, no aplanamos el arbol en una lista, sino que en el iterador y mediante pilas, iteramos por cada uno de los elementos de la pila.
+	En la pila introducimos  todos los elementos hijos del elemento sobre el que hay que iterar.
+-Se anyaden dos nuevos comandos concretos en el Command, ShowGroups (que usara un iterador con la estrategia por categorias), y ShowLess (que usara un iterador con la estrategia por precio)
+	de forma que en total hay 17 comandos concretos.

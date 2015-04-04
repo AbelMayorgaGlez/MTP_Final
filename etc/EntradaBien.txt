@@ -1,0 +1,7 @@
+newprod mesa1, una mesa muy bonita, 3.14, subasta, Almacen
+set descripcion mesa1, una mesa fea
+set precio mesa1, 25
+auction mesa1
+bid mesa1, Pablo, 26
+bid mesa1, Rodrigo, 27
+endauction mesa1

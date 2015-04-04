@@ -1,0 +1,4 @@
+newprod silla, silla, 10.2, venta, Antiguedades
+newprod silla2, silla2, 5.4, venta, Antiguedades
+newprod silla3, silla3, 15.4, venta, Antiguedades
+showless 11

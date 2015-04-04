@@ -1,0 +1,6 @@
+get categoria silla1
+get descripcion PS-000001
+get nombre PS-000001
+get precio silla1
+get precio silla1, rebaja, 10
+get tipo silla1

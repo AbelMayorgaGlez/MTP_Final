@@ -1,0 +1,112 @@
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPV.java:84) - Comparando PV-000001 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con producto2
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ WARN [main] (Auction.java:72) - Producto no encontrado por identificador, pasamos a buscar por nombre
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con 1
+ INFO [main] (Categoria.java:131) - Identificador encontrado: elemento Almacen
+ INFO [main] (Producto.java:107) - Se ha encontrado una coincidencia para producto2 en el elemento producto2
+ INFO [main] (Auction.java:92) - Puja comenzada por el elemento: producto2: producto feo, 13.0.
+
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (InterfazUsuario.java:160) - Comando creado y ejecutado con exito
+ INFO [main] (InterfazUsuario.java:87) - Comando identificado como bid
+ INFO [main] (IdentificadorDefecto.java:35) - IdentificadorDefecto creado con exito.
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con producto2
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 2 con producto2
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 3 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPV.java:84) - Comparando PV-000001 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con producto2
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con 1
+ INFO [main] (Categoria.java:131) - Identificador encontrado: elemento Almacen
+ INFO [main] (Producto.java:107) - Se ha encontrado una coincidencia para producto2 en el elemento producto2
+ INFO [main] (Usuario.java:57) - Usuario creado con exito
+ INFO [main] (Bid.java:102) - Se ha creado un nuevo usuario de nombre: usuario1
+ INFO [main] (ObservadorSubasta.java:143) - Siguiendo un nuevo producto
+ INFO [main] (Usuario.java:191) - Creando nuevo observador para usuario1
+ INFO [main] (ProductoSubasta.java:100) - Puja realizada con exito
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con PS-000001
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (Producto.java:87) - Elemento encontrado: producto2
+ INFO [main] (ObservadorSubasta.java:127) - Puja realizada conexito
+ INFO [main] (Usuario.java:70) - usuario1 ha pujado por el producto producto2 con un precio de 14.0
+ INFO [main] (Bid.java:108) - El usuario usuario1 ha pujado por el elemento producto2 con un precio de 13.0
+ INFO [main] (InterfazUsuario.java:160) - Comando creado y ejecutado con exito
+ INFO [main] (InterfazUsuario.java:87) - Comando identificado como bid
+ INFO [main] (IdentificadorDefecto.java:35) - IdentificadorDefecto creado con exito.
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con producto2
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 2 con producto2
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 3 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPV.java:84) - Comparando PV-000001 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con producto2
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con 1
+ INFO [main] (Categoria.java:131) - Identificador encontrado: elemento Almacen
+ INFO [main] (Producto.java:107) - Se ha encontrado una coincidencia para producto2 en el elemento producto2
+ INFO [main] (Usuario.java:57) - Usuario creado con exito
+ INFO [main] (Bid.java:102) - Se ha creado un nuevo usuario de nombre: usuario2
+ INFO [main] (ObservadorSubasta.java:143) - Siguiendo un nuevo producto
+ INFO [main] (Usuario.java:191) - Creando nuevo observador para usuario2
+ INFO [main] (ProductoSubasta.java:100) - Puja realizada con exito
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con PS-000001
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (Producto.java:87) - Elemento encontrado: producto2
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con PS-000001
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (Producto.java:87) - Elemento encontrado: producto2
+ INFO [main] (Usuario.java:115) - A usuario1 le han sobrepujado
+ INFO [main] (ObservadorSubasta.java:127) - Puja realizada conexito
+ INFO [main] (Usuario.java:70) - usuario2 ha pujado por el producto producto2 con un precio de 15.0
+ INFO [main] (Bid.java:108) - El usuario usuario2 ha pujado por el elemento producto2 con un precio de 13.0
+ INFO [main] (InterfazUsuario.java:160) - Comando creado y ejecutado con exito
+ INFO [main] (InterfazUsuario.java:90) - Comando identificado como endauction
+ INFO [main] (IdentificadorDefecto.java:35) - IdentificadorDefecto creado con exito.
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con producto2
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 2 con producto2
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 3 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPV.java:84) - Comparando PV-000001 con producto2
+ INFO [main] (IdentificadorPV.java:92) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con producto2
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorCategoria.java:72) - Comparando 1 con 1
+ INFO [main] (Categoria.java:131) - Identificador encontrado: elemento Almacen
+ INFO [main] (Producto.java:107) - Se ha encontrado una coincidencia para producto2 en el elemento producto2
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con PS-000001
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (Producto.java:87) - Elemento encontrado: producto2
+ INFO [main] (Usuario.java:94) - Borrado el observador de usuario2
+ INFO [main] (Usuario.java:99) - usuario2 ha ganado la subasta
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:83) - Comparando PS-000001 con PS-000001
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (IdentificadorPS.java:91) - Se completa con 5 ceros para completar los 6digitos.
+ INFO [main] (Producto.java:87) - Elemento encontrado: producto2
+ INFO [main] (Usuario.java:94) - Borrado el observador de usuario1
+ INFO [main] (EndAuction.java:86) - Subasta por el elemento producto2 finalizada con exito
+ INFO [main] (InterfazUsuario.java:160) - Comando creado y ejecutado con exito
+ INFO [main] (IdentificadorCategoria.java:57) - IdentificadorCategoria creado con exito
+ INFO [main] (Categoria.java:93) - Categoria Almacen creada con exito.

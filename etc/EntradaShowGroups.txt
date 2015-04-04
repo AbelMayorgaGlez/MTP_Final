@@ -1,0 +1,3 @@
+newprod sillaca, silla, 10.2, subasta, Antiguedades, Sillas
+newprod mesaca, mesa, 20.4, subasta, Mesas, Mesas de campo
+Showgroups

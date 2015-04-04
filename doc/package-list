@@ -1,0 +1,12 @@
+es.unileon.mtp.grupo5.puntocom
+es.unileon.mtp.grupo5.puntocom.command
+es.unileon.mtp.grupo5.puntocom.composite
+es.unileon.mtp.grupo5.puntocom.decorator
+es.unileon.mtp.grupo5.puntocom.excepciones
+es.unileon.mtp.grupo5.puntocom.handler
+es.unileon.mtp.grupo5.puntocom.interfaz
+es.unileon.mtp.grupo5.puntocom.iterator
+es.unileon.mtp.grupo5.puntocom.observer
+es.unileon.mtp.grupo5.puntocom.strategyIterador
+es.unileon.mtp.grupo5.puntocom.strategyLectura
+es.unileon.mtp.grupo5.puntocom.strategyPrecio

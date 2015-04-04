@@ -1,0 +1,11 @@
+NEWPROD producto1, producto bonito, 130, venta, antiguedades, mapas
+SET PRECIO producto1, 300
+SELL producto1
+GET PRECIO producto1
+GET PRECIO producto1, rebaja, 10
+NEWPROD producto2, producto feo, 1, subasta, antiguedades, libros
+SET PRECIO producto2, 13
+AUCTION producto2
+BID producto2, usuario1, 14
+BID producto2, usuario2, 15
+ENDAUCTION producto2

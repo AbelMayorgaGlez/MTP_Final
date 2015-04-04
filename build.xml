@@ -1,0 +1,82 @@
+<project name="Practica_GRUPO_5" basedir="." default="todo">
+	<property name="src" value="./src"/>
+	<property name="lib" value="./lib"/>
+	<property name="bin" value="./classes"/>
+	<property name="doc" value="./doc"/>
+	<property name="etc" value="./etc"/>
+	<property name="log" value="./log"/>
+	<property name="paquetes" value="es.unileon.mtp.grupo5.puntocom.*"/>
+	<property name="titulo" value="Practica_GRUPO_5"/>
+
+
+	<path id="classpath.base">
+  	</path>
+  	<path id="classpath.test">
+		<pathelement location="./lib/junit-4.8.1.jar" />
+		<pathelement location="./lib/log4j-1.2.16.jar" />
+    		<pathelement location="${src}" />
+    		<path refid="classpath.base" />
+  	</path>	
+
+
+	<target name="limpiar">
+		<delete dir="${bin}"/>
+		<delete dir="${doc}"/>
+		<delete file="${etc}/log.txt"/>
+		<delete dir="${resultado}"/>
+		<delete dir="${log}"/>
+	</target>
+
+	<target name="compile" depends="limpiar">
+		<mkdir dir="${etc}"/>
+		<mkdir dir="${bin}"/>
+		<javac srcdir="${src}" destdir="${bin}" 
+			 verbose="true" debug="true">
+			<classpath refid="classpath.test"/>
+		</javac>	
+	</target>
+
+	<target name="doc">
+		<mkdir dir="${doc}"/>
+		<javadoc sourcepath="${src}" classpath="./lib/junit-4.8.1.jar;./lib/log4j-1.2.16.jar"
+			destdir="${doc}"
+			packagenames="${paquetes}"
+			verbose="true" author="true"
+			access="private" splitindex="true" version="true"
+			windowtitle="${titulo}" doctitle="${titulo}"/>
+	</target>
+
+	<target name="test" depends="compile">
+		<junit >
+		    <classpath path="./lib/junit-4.8.1.jar;./lib/log4j-1.2.16.jar;./classes" />
+		    <batchtest >
+		        <fileset dir="./classes">
+		            <include name="**/*ConjuntoTest.class"/>
+		        </fileset>
+		    </batchtest>
+		</junit>
+	</target>
+	
+	<target name="run1">
+		<java classname="es.unileon.mtp.grupo5.puntocom.interfaz.Main">
+			<classpath path="./lib/junit-4.8.1.jar;./lib/log4j-1.2.16.jar;./classes" />
+		</java>
+	</target>
+	
+	<target name="run2">
+			<java classname="es.unileon.mtp.grupo5.puntocom.interfaz.Main">
+				<classpath path="./lib/junit-4.8.1.jar;./lib/log4j-1.2.16.jar;./classes" />
+				<arg file="etc/EntradaAnt.txt" />
+			</java>
+		</target>
+	<target name="run3">
+				<java classname="es.unileon.mtp.grupo5.puntocom.interfaz.Main">
+					<classpath path="./lib/junit-4.8.1.jar;./lib/log4j-1.2.16.jar;./classes" />
+					<arg file="etc/EntradaAnt.txt" />
+					<arg file="log/SalidaAnt.txt" />
+				</java>
+			</target>
+	<target name="todo" depends="compile,
+		doc, test, run2, run3, run1"/>
+
+</project>

@@ -1,0 +1,20 @@
+Producto PV-000001 creado satisfactoriamente
+Descripcion: producto bonito
+Tipo: venta
+Categoria: antiguedades
+Subcategorias: mapas 
+Se ha asignado correctamente un precio de 300.0 al elemento producto1
+producto1 PV-000001 a la venta
+El precio del producto producto1 es 300.0
+El precio del producto producto1 es 270.0
+Producto PS-000001 creado satisfactoriamente
+Descripcion: producto feo
+Tipo: subasta
+Categoria: antiguedades
+Subcategorias: libros 
+Se ha asignado correctamente un precio de 13.0 al elemento producto2
+producto2 PS-000001 sacado a subasta con un precio de 13.0
+usuario1 ha pujado por el producto producto2 con un precio de 14.0
+A usuario1 le han sobrepujado. El nuevo precio para producto2 es: 15.0
+usuario2 ha pujado por el producto producto2 con un precio de 15.0
+usuario2 ha ganado la subasta por el producto producto2 enhorabuena.
